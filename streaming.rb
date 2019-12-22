@@ -43,7 +43,7 @@ Plugin.create :streaming do
               json.strip!
               case json
               when /\A\{.*\}\Z/
-                if @success_flag
+                unless @success_flag
                   @fail.success
                   @success_flag = true end
                 parsed = JSON.parse(json).symbolize
