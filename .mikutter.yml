@@ -4,7 +4,7 @@
   :mikutter: '3.7'
   :plugin:
   - twitter
-:version: '2.1'
+:version: '2.2'
 :author: toshi_a
 :name: Streaming
 :description: Filter Stream等の各種ストリーミングAPIに対応する
