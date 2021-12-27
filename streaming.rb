@@ -47,7 +47,9 @@ Plugin.create :streaming do
                   @fail.success
                   @success_flag = true end
                 parsed = JSON.parse(json).symbolize
-                MikuTwitter::ApiCallSupport::Request::Parser.streaming_message(parsed) rescue nil
+                if not (UserConfig[:filter_dont_exclude_retweet] == false and parsed[:retweeted_status])
+                  MikuTwitter::ApiCallSupport::Request::Parser.streaming_message(parsed) rescue nil
+                end
               end }
             raise r if r.is_a? Exception
             notice "filter stream: disconnected #{r}"
